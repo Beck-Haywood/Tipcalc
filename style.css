@@ -1,0 +1,135 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: Helvetica;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    background-color: #666;
+    width: 300px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: "d d d d"
+                         "a b c f"
+                         "m l k g"
+                         "n o p h"
+                         "s r q i"
+                         "t t u j";
+}
+.display {
+    font-size: 4em;
+    font-weight: 100;
+    text-align: right;
+    line-height: 100px;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    background-color: #444;
+    grid-area: d;
+    color: #fff;
+
+}
+button {
+    border: none;
+    margin: 1px;
+    font-size: 2em;
+    font-weight: 100;
+    border-radius: 0.25em;
+    background-color: #aaa;
+    color: #fff;
+}
+ .a1 {
+    grid-area: a;
+    background-color: #888;
+} 
+.a2 {
+    grid-area: b;
+    background-color: #888;
+}
+.a3 {
+    grid-area: c;
+    background-color: #888;
+}
+.a4 {
+    grid-area: f;
+    background-color: #f90;
+}
+.a5 {
+    grid-area: g;
+    background-color: #f90;
+
+}
+.a6 {
+    grid-area: h;
+    background-color: #f90;
+
+
+}
+.a7 {
+    grid-area: i;
+    background-color: #f90;
+
+
+}
+.a8 {
+    grid-area: j;
+    background-color: #f90;
+
+
+}
+.a9 {
+    grid-area: k;
+
+
+}
+.a10 {
+    grid-area: l;
+
+}
+.a11 {
+    grid-area: m;
+
+}
+.a12 {
+    grid-area: n;
+
+}
+.a13 {
+    grid-area: o;
+
+}
+.a14 {
+    grid-area: p;
+
+}
+.a15 {
+    grid-area: q;
+
+}
+.a16 {
+    grid-area: r;
+
+}
+.a17 {
+    grid-area: s;
+
+}
+.a18 {
+    grid-area: t;
+
+}
+.a19 {
+    grid-area: u;
+
+}

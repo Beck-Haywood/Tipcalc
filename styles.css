@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: Helvetica;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc {
+    width: 250px;
+    height: 300px;
+    background-color: #666;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "h h"
+                         "b v"
+                         "t f"
+                         "p a";
+
+
+}
+h1 {
+    grid-area: h;
+}
+.bill {
+    grid-area: b;
+}
+.tip {
+    grid-area: t
+}
+.people {
+    grid-area: p;
+}
+button {
+    grid-area: s;
+    background-color: #f90;
+}
+.totalc {
+    grid-area: f;
+    padding: 0.25em;
+}
+.tipc {
+    grid-area: v;
+    padding: 0.25em;
+
+}
+.perc {
+    grid-area: a;
+    padding: 0.25em;
+
+}
