@@ -1,0 +1,138 @@
+<html>
+    <head>                    
+        <script src="https://kit.fontawesome.com/60f2b4a655.js"></script>
+    </head>
+    <body>
+        <h1>Gif Search</h1>
+        <div class = "search-box">
+            <form id="search-form">
+                <input autocomplete="off" class="search-txt" name="query" type="query" id="input-search" placeholder="Type to Search for GIFs"/>
+                <a class= "search-btn" href="#">
+                    <button input class="search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <!--search button icon from https://fontawesome.com/ -->
+                </a>
+            </form>
+        </div>
+        <div class="spacing">
+
+        </div>
+        <div class="grid" id="container">
+            <div id="text">
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        const searchForm = document.getElementById('search-form')
+        const inputSearch = document.getElementById('input-search')
+
+
+        searchForm.addEventListener('submit', submitSearch)
+        
+        function submitSearch(e) {
+            e.preventDefault()
+            // Get the value input in the search input
+            const query = inputSearch.value
+            fetchData(search =query)
+        }
+        function fetchData(search = 'cats') {
+            const api = 'eu60m77e4aLlnLzh1aUZlnu8sU9b3sEo'
+            const path = `https://api.giphy.com/v1/gifs/search?api_key=${api}&q=${search}`
+            fetch(path)
+                .then(function(res) { return res.json() })
+                .then(function(json) { handleData(json) })
+                .catch(function(err) { console.log(err.message) })
+        } 
+        
+        function handleData(json) {
+            const data = json.data
+            let htmlStr = ''
+            let htmlStr2 = ''
+            for (let i = 0; i < data.length; i += 1) {
+                const image = data[i].images.fixed_height_small
+                const src = image.url
+                const width = image.width
+                const height = image.height
+                const title = data[i].title
+                htmlStr += `<div><p>${title}</p><img src="${src}" width="${width}" height="${height}">`
+                htmlStr += `</div>`
+
+            }
+            console.log(json)
+            // Set the innHTML of #container
+            container.innerHTML = htmlStr
+            text.innerHTML = htmlStr2
+        }
+        
+        
+    </script>
+    <style>
+        .spacing {
+            width: 10px;
+            height: 100px;
+        }
+        .grid {
+            display: grid;
+            grid-gap: 25px;
+            grid-template-columns: repeat(5, 2fr);
+            grid-template-rows: repeat(5, 2fr);
+
+        }
+        body {
+            background-color: #e84118;
+            margin: 0;
+            padding: 0;
+          }
+          
+          h1 {
+            color: #2f3640;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+          }
+          p {
+            color: black;
+            font-family: "Courier New", Courier, monospace;
+          }
+          
+          .search-box{
+            background: #2f3640;
+            border-radius: 40px;
+            height: 20px;
+            left: 50%;
+            padding: 1em;
+            position: absolute;
+            top: 15%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .search-btn{
+            color: #e84118;
+            float: right;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+          }
+          
+          .search-txt{
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: white;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 22px;
+            width: 240px;
+          }
+
+    </style>
+</html>
+    
