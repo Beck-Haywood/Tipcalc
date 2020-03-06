@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Final Assesment- Beck</title>
+    </head>
+    <body>
+        <div class="container">
+            <form class="flexbox">
+                <div class="flexrow">
+                    <input id="h1form" class="h1formstyle" type="text">
+                    <input id="h1color"  type="color">
+                </div>
+                <textarea id="pform" class="pformstyle"></textarea>
+                <input  id="pcolor" class="colorstyle left" type="color">
+                <label >Choose a font for title!:</label>
+                <select id="fontSelector">
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Futura">Futura</option>
+                </select>
+                <label >Choose a font for content!:</label>
+                <select id="fontSelectorcontent">
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Futura">Futura</option>
+                </select>
+                <label >Choose a font size for title!:</label>
+                <input type="range" min="1" max="100" value="24" class="slider" id="1">
+                <label >Choose a font size for content!:</label>
+                <input type="range" min="1" max="100" value="12" class="slider" id="2">
+
+                <input  id="submit" type="submit">
+            </form>
+        </div>
+        <div class="container">
+            <h1 id="h1"></h1>
+            <p id="p"></p>
+        </div>
+        <style>
+            .left {
+                align-items: flex-start;
+            }
+            .colorstyle {
+                margin: 2em;
+            }
+            .h1formstyle {
+                width: 300px;
+                height: 50px;
+                margin: 2em;
+            }
+            .pformstyle {
+                width: 350px;
+                height: 70px;
+                margin: 2em;
+
+            }
+            .flexrow {
+                display: flex;
+                flex-direction: row;
+            }
+            .flexbox {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+            }
+
+            .container {
+                width: 400px;
+                height: 600px;
+                margin: 1em;
+                outline: 1px solid black;
+                padding: 1em;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        </style>
+        <script>
+            const h1form = document.getElementById('h1form')
+            const h1color = document.getElementById('h1color')
+            const pform = document.getElementById('pform')
+            const pcolor = document.getElementById('pcolor')
+            const submit = document.getElementById('submit')
+            var fontselector = document.getElementById("fontSelector");
+            var fontselector2 = document.getElementById("fontSelectorcontent");
+            const size1 = document.getElementById('1')
+            const size2 = document.getElementById('2')
+
+
+
+
+
+            const displayh1 = document.getElementById('h1')
+            const displayp = document.getElementById('p')
+
+            h1form.addEventListener('input', handleTitle)
+            function handleTitle(e) {
+                displayh1.innerHTML = e.target.value;
+            }
+            h1color.addEventListener('input', handleh1color)
+            function handleh1color(e) {
+                displayh1.style.color = e.target.value;
+            }
+            size1.addEventListener('input', size11)
+            function size11(e) {
+                console.log(size1.value)
+                let string = ""
+                string = size1.value + "px"
+                console.log(string)
+                displayh1.style.fontSize = string;
+            }
+            size2.addEventListener('input', size22)
+            function size22(e) {
+                console.log(size2.value)
+                let string = ""
+                string = size2.value + "px"
+                console.log(string)
+                displayp.style.fontSize = string;            }
+
+            fontselector.addEventListener('change', handlefont)
+            function handlefont(e) {
+                console.log(fontselector.value)
+                switch(fontselector.value) {    
+                    case "Helvetica":
+                        displayh1.style.fontFamily = "Helvetica"
+                      break;
+                    case "Tahoma":
+                        displayh1.style.fontFamily = "Tahoma"
+                        break;
+                    case "Arial":
+                        displayh1.style.fontFamily = "Arial"
+                        break;
+                    case "Futura":
+                        displayh1.style.fontFamily = "Futura"
+
+                        break;
+                    default: 
+                  }
+            }
+            fontselector2.addEventListener('change', handlefont2)
+            function handlefont2(e) {
+                console.log(fontselector2.value)
+                switch(fontselector2.value) {    
+                    case "Helvetica":
+                        displayp.style.fontFamily = "Helvetica"
+                      break;
+                    case "Tahoma":
+                        displayp.style.fontFamily = "Tahoma"
+                        break;
+                    case "Arial":
+                        displayp.style.fontFamily = "Arial"
+                        break;
+                    case "Futura":
+                        displayp.style.fontFamily = "Futura"
+
+                        break;
+                    default: 
+
+                  }
+            }
+
+            pform.addEventListener('input', handleP)
+            function handleP(e) {
+                displayp.innerHTML = e.target.value;
+            }
+            pcolor.addEventListener('input', handlepcolor)
+            function handlepcolor(e) {
+                displayp.style.color = e.target.value;
+            }
+
+        </script>
+    </body>
+</html>
